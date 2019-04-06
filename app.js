@@ -64,6 +64,12 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,{'content-type':'text/js'})
             res.end(content);
         })
+     }else {
+        fs.readFile(path.join(__dirname,'404.html'),(err,content)=>{
+            if(err) throw err;
+            res.writeHead(404,{'content-type':'text/html'})
+            res.end(content);
+        })
      }
 
 }
